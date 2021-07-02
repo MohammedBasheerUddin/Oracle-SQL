@@ -1,0 +1,23 @@
+QUERY:
+Display Employee Name and Dept No who designation is manager and salary is above 2000
+
+SELECT ENAME, DEPTNO FROM EMP
+WHERE JOB ='MANAGER'
+AND SAL >= 2000
+
+Output:
+ENAME	  DEPTNO
+BLAKE	  30
+CLARK	  10
+JONES	  20
+
+
+________________________________________________________________________________________
+LOGICALLY INCORRECT SQL QUERY:
+SELECT ENAME, DEPTNO FROM EMP
+WHERE JOB ='MANAGER'
+AND JOB = 'CLERK'
+
+OUTPUT: NO DATA FOUND
+_________________________________________________________________________________________
+
