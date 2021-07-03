@@ -1,19 +1,17 @@
-QUERY:
-Display Employee Name and Dept No who designation is manager and salary is above 2000
+QUERY: Display Employee Name and Dept No who designation is manager and salary is above 2000
 
-SELECT ENAME, DEPTNO FROM EMP
-WHERE JOB ='MANAGER'
-AND SAL >= 2000
+    SELECT ENAME, DEPTNO FROM EMP
+    WHERE JOB ='MANAGER'
+    AND SAL >= 2000
 
-Output:
-ENAME	  DEPTNO
-BLAKE	  30
-CLARK	  10
-JONES	  20
-
-
+    Output:
+    ENAME	  DEPTNO
+    BLAKE	  30
+    CLARK	  10
+    JONES	  20
 ________________________________________________________________________________________
 LOGICALLY INCORRECT SQL QUERY:
+
 SELECT ENAME, DEPTNO FROM EMP
 WHERE JOB ='MANAGER'
 AND JOB = 'CLERK'
@@ -21,3 +19,64 @@ AND JOB = 'CLERK'
 OUTPUT: NO DATA FOUND
 _________________________________________________________________________________________
 
+=> Using Between, IN & Null operators queries:
+
+IN OPERATOR:
+The IN operator checks a value within a set of values separated by commas and retrieve the
+rows from the table which are matching.
+FOR STRINGS USE ONLY ONE QUOTE ' VALID ' ELSE DOUBLE QUOTATION GIVES ERROR " INVALID "
+
+QUERY: DISPLAY EMPLOYEE NAME AND DEPTNO WHOSE DEPARTMENT NO IS 20 OR 30
+
+    SELECT ENAME, DEPTNO FROM EMP
+    WHERE DEPTNO IN (20, 30)
+
+    EQUIVALENT OR OPERATOR QUERY:
+
+    SELECT ENAME, DEPTNO FROM EMP
+    WHERE DEPTNO = 20
+    OR DEPTNO = 30
+
+    OUTPUT:
+    ENAME	  DEPTNO
+    JONES	  20
+    SCOTT	  20
+    BLAKE	  30
+    ALLEN	  30
+
+QUERY: DISPLAY ENAME AND DEPTNO OF EMPLOYEE EXCEPT 'BLAKE', 'WARD' & 'KING'
+
+    SELECT ENAME, DEPTNO FROM EMP
+    WHERE ENAME NOT IN ('BLAKE', 'WARD', 'KING')
+
+Syntax: SELECT Column(s) FROM table_name WHERE Column NOT IN (value1, value2... valueN);
+In the syntax above the values that are not satisfied as part of the IN clause will be 
+considered for the result.
+
+      OUTPUT:
+      ENAME	DEPTNO
+      CLARK	10
+      JONES	20
+      SCOTT	20
+
+BETWEEN OPERATOR:
+BASICALLY IT IS USED TO FILTER BASED ON RANGE OF DATA.The BETWEEN operator selects values within a given range.
+The values can be numbers, text, or dates. The BETWEEN operator is inclusive: begin and end values are included.
+
+SYNTAX:
+SELECT column_name(s)
+FROM table_name
+WHERE column_name BETWEEN value1 AND value2;
+
+QUERY: DISPLAY EMP NAME AND EMP HIREDATE WHO ARE HIRED BETWEEN 05/01/1981 AND 12/09/1982
+
+  SELECT ENAME FROM EMP
+  WHERE HIREDATE BETWEEN '05/01/1981' AND '12/09/1982'
+  
+  OUTPUT:
+  ENAME
+  KING
+  BLAKE
+  CLARK
+  
+  
