@@ -78,5 +78,13 @@ QUERY: DISPLAY EMP NAME AND EMP HIREDATE WHO ARE HIRED BETWEEN 05/01/1981 AND 12
   KING
   BLAKE
   CLARK
-  
-  
+ 
+ QUERY: display employee details who have salary between 1000 to 2000
+ 
+   SELECT * FROM EMP 
+   WHERE SAL BETWEEN 1000 AND 2000
+   In the above query the between operators includes the values which is specified to and their ranges within.
+   If the values of specified between 2000 to 3000 then the values & their ranges will be included
+    
+ 
+ 
